@@ -51,11 +51,9 @@ def export_to_sqlite(request):
     # 3. Запись в базу и закрытие соединения
         # Вставка данных в поля таблицы
         if re.fullmatch(r'\d\d', str(data[0])):
-            cursor.execute("INSERT INTO bank(bank_id, in_active, in_passive, debet, credit, out_active, out_passive) "
-                           "VALUES (?, ?, ?, ?, ?, ?, ?);", (data[0], data[1], data[2], data[3], data[4], data[5], data[6]))
+            cursor.execute("INSERT INTO bank(in_active, in_passive, debet, credit, out_active, out_passive) VALUES (?, ?, ?, ?, ?, ?);", (data[1], data[2], data[3], data[4], data[5], data[6]))
         elif re.fullmatch(r'\d{4}', str(data[0])):
-            cursor.execute("INSERT INTO account(account_id, in_active, in_passive, debet, credit, out_active, out_passive, class_id, bank_id) "
-                           "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);", (data[0], data[1], data[2], data[3], data[4], data[5], data[6], int(data[0][:1]), int(data[0][:2])))
+            cursor.execute("INSERT INTO account(account_id, in_active, in_passive, debet, credit, out_active, out_passive, class_id, bank_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);", (data[0], data[1], data[2], data[3], data[4], data[5], data[6], int(data[0][:1]), int(data[0][:2])))
     # сохраняем изменения
     connect.commit()
     # закрытие соединения

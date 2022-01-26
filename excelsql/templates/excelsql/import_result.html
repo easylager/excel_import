@@ -2,15 +2,14 @@
 {% block title %}{% endblock %}
 {% block content %}
   <div class="px-4 py-5 my-5 text-center">
-    <h1 class="display-5 fw-bold">Success import</h1>
+    <h1 class="display-5 fw-bold">Successful import</h1>
     <div class="col-lg-6 mx-auto">
-      <p class="lead mb-4">To show the result of the import operation open next link in 'sqlitebrowser'
+      <p class="lead mb-4">To see the result of the import operation open next link in 'sqlitebrowser'
 </p>
         <p>Or follow this link: https://inloop.github.io/sqlite-viewer/</p>
         <a href="{{ link }}">database</a>
       <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
         <a href="{% url 'home_page_url' %}" class="btn btn-success">home</a>
-        <a href="" class="btn btn-success">Show all files</a>
       </div>
     </div>
   </div>
