@@ -51,25 +51,8 @@ out_active=исходящие активы, out_passive=исходящие па�
 ![Альтернативный текст](./screenshots/account.png)
 ### Фрагмент таблицы bank
 ![Альтернативный текст](./screenshots/bank.png)
-
 ### Основной фрагмент скрипта на python
-< file_to_read = openpyxl.load_workbook(CUR_DIR + '/excelsql' + '/balance.xlsx', data_only=True)
-    sheet = file_to_read['Sheet1']
-    # Цикл по строкам начиная с десятой (в первой заголовки)
-    for row in range(10, 626):
-        # Объявление списка
-        data = []
-        # Цикл по столбцам от 1 до 4 ( 5 не включая)
-        for col in range(1, 8):
-            # value содержит значение ячейки с координатами row col
-            value = sheet.cell(row, col).value
-            # Список который мы потом будем добавлять
-            data.append(value)
-        if data[1] == None:
-            continue
-    # 3. Запись в базу и закрытие соединения
-        # Вставка данных в поля таблицы
-        if re.fullmatch(r'\d\d', str(data[0])):
-            cursor.execute("INSERT INTO bank(bank_id, in_active, in_passive, debet, credit, out_active, out_passive) VALUES (?, ?, ?, ?, ?, ?, ?);", (data[0], data[1], data[2], data[3], data[4], data[5], data[6]))
-        elif re.fullmatch(r'\d{4}', str(data[0])):
-            cursor.execute("INSERT INTO account(account_id, in_active, in_passive, debet, credit, out_active, out_passive, class_id, bank_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);", (data[0], data[1], data[2], data[3], data[4], data[5], data[6], int(data[0][:1]), int(data[0][:2])))>
+![Альтернативный текст](./screenshots/code.png)
+## Веб-интерфейс
+![Альтернативный текст](./screenshots/interface_1.png)
+![Альтернативный текст](./screenshots/interface_2.png)
